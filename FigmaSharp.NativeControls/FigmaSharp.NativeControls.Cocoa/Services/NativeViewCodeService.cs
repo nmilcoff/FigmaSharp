@@ -122,8 +122,9 @@ namespace FigmaSharp.Services
 		protected override void OnPostConvertToCode(StringBuilder builder, FigmaCodeNode node, FigmaCodeNode parent, FigmaViewConverter converter, FigmaCodePropertyConverterBase codePropertyConverter)
 		{
 			if (converter is FigmaNativeControlConverter nativeControlConverter) {
-				if (nativeControlConverter.ControlType != null && node.Node.TryGetNodeCustomName (out string name)) {
-					PrivateMembers.Add((nativeControlConverter.ControlType, name));
+				var controlType = nativeControlConverter.GetControlType(node.Node);
+				if (controlType != null && node.Node.TryGetNodeCustomName (out string name)) {
+					PrivateMembers.Add((controlType, name));
 				}
 			}
 			base.OnPostConvertToCode(builder, node, parent, converter, codePropertyConverter);
