@@ -62,9 +62,8 @@ namespace FigmaSharp
 
 				if (windowComponent.Options() is IFigmaNodeContainer figmaNodeContainer)
 				{
-					var title = (FigmaText)figmaNodeContainer
-						.children
-						.FirstOrDefault(s => s.name == "title" && s.visible);
+					var title = ((FigmaNode)figmaNodeContainer)
+						.FirstChild (s => s.name == "title" && s.visible) as FigmaText;
 
 					if (title != null)
 						builder.WriteEquality(CodeGenerationHelpers.This, nameof(AppKit.NSWindow.Title), title.characters ?? "", inQuotes: true);
