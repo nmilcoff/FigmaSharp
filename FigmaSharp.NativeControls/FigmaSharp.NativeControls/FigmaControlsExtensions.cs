@@ -346,6 +346,11 @@ namespace FigmaSharp.NativeControls
             return false;
         }
 
+        public static bool IsComponentContainer (this FigmaNode node)
+        {
+            return (node is FigmaInstance || node is FigmaComponentEntity) && node.name.Contains("!container");
+        }
+
         public static bool IsWindowOfType (this FigmaNode figmaNode, NativeControlType controlType)
         {
             if (figmaNode.TryGetNativeControlType (out var value) && value == controlType) {

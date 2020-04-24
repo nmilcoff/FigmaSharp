@@ -37,7 +37,7 @@ using FigmaSharp.Services;
 namespace FigmaSharp
 {
     public class FigmaBundleWindow : FigmaBundleViewBase
-	{
+    {
 		const string frameEntity = "frame";
 
 		public FigmaBundleWindow (FigmaBundle figmaBundle, string viewName, FigmaNode figmaNode) : base (figmaBundle, viewName, figmaNode)
@@ -62,7 +62,9 @@ namespace FigmaSharp
 
 				if (windowComponent.Options() is IFigmaNodeContainer figmaNodeContainer)
 				{
-					var title = (FigmaText)figmaNodeContainer.children.FirstOrDefault(s => s.name == "title" && s.visible);
+					var title = (FigmaText)figmaNodeContainer
+						.children
+						.FirstOrDefault(s => s.name == "title" && s.visible);
 
 					if (title != null)
 						builder.WriteEquality(CodeGenerationHelpers.This, nameof(AppKit.NSWindow.Title), title.characters ?? "", inQuotes: true);
