@@ -108,6 +108,7 @@ namespace FigmaSharp
 				}
 			}
 
+			//Window Frame
 			if (FigmaNode is IAbsoluteBoundingBox box) {
 				builder.AppendLine();
 				builder.WriteEquality (frameEntity, null, nameof (AppKit.NSWindow.Frame), instanciate: true);

@@ -23,7 +23,7 @@ namespace ToCode.Cocoa
 		FigmaDesignerDelegate figmaDelegate;
 		FigmaCodeRendererService codeRenderer;
 
-		const string fileId = "cHOyOXym6FMYSr5fofnsxe";
+		const string fileId = "7E9P9fEYGJijRXigfSz0kP";
 
 		public ViewController (IntPtr handle) : base (handle)
 		{
